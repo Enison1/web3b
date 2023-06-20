@@ -9,16 +9,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
-use App\Models\Autor;
+use App\Models\Aluno;
 
-class AutorMensagem extends Mailable
+class AlunoMensagem extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public Autor $autor, public string $mensagem)
+    public function __construct(public Aluno $aluno, public string $mensagem)
     {
         //
     }

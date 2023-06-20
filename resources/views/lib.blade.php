@@ -6,17 +6,17 @@
   <!-- carrossel -->
   <div id="carouselPrincipal" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      @foreach($ultimasNoticias as $noticia)
+      @foreach($ultimasLivros as $livro)
       <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="{{$loop->index}}" class="active" aria-current="true" aria-label="Slide {{($loop->index+1)}}"></button>
       @endforeach
     </div>
     <div class="carousel-inner">
-    @foreach($ultimasNoticias as $noticia)
+    @foreach($ultimasLivros as $livro)
       <div class="carousel-item {{$loop->first?'active':''}} ratio" style="--bs-aspect-ratio: 20%;">
-        <img src="/storage/imagens/{{$noticia->imagem}}" class="d-block w-100" alt="...">
+        <img src="/storage/imagens/{{$livro->imagem}}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><a style="color:white" href="news/noticia/{{$noticia->id}}">{{$noticia->titulo}}</a></h5>
-          <p style="font-size:0.75rem;">{{$noticia->autor->nome}} - {{$noticia->data->format('d/m/Y')}}</p>
+          <h5><a style="color:white" href="news/livro/{{$livro->id}}">{{$livro->titulo}}</a></h5>
+          <p style="font-size:0.75rem;">{{$livro->autor->nome}} - {{$livro->data->format('d/m/Y')}}</p>
         </div>
       </div>
     @endforeach
@@ -38,17 +38,17 @@
     <!-- carrossel -->
     <div id="carousel-cat{{$loop->index}}" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        @foreach($categoria->noticias as $noticia)
+        @foreach($categoria->livros as $livro)
         <button type="button" data-bs-target="#carousel-cat{{$loop->parent->index}}" data-bs-slide-to="{{$loop->index}}" class="active" aria-current="true" aria-label="Slide {{($loop->index+1)}}"></button>
         @endforeach
       </div>
       <div class="carousel-inner">
-        @foreach($categoria->noticias as $noticia)
+        @foreach($categoria->livros as $livro)
         <div class="carousel-item {{$loop->first?'active': ''}} ratio" style="--bs-aspect-ratio: 50%;">
-          <img src="/storage/imagens/{{$noticia->imagem}}" class="d-block w-100" alt="...">
+          <img src="/storage/imagens/{{$livro->imagem}}" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h5><a style="color:white" href='{{url("news/noticia/$noticia->id")}}'>{{$noticia->titulo}}</a></h5>
-            <p style="font-size:0.75rem;">{{$noticia->autor->nome}} - {{$noticia->data->format('d/m/Y')}}</p>
+            <h5><a style="color:white" href='{{url("news/livro/$livro->id")}}'>{{$livro->titulo}}</a></h5>
+            <p style="font-size:0.75rem;">{{$livro->autor->nome}} - {{$livro->data->format('d/m/Y')}}</p>
           </div>
         </div>
         @endforeach

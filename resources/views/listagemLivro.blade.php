@@ -13,7 +13,7 @@
 
 
 
-  <h1>Listagem de Notícias</h1>
+  <h1>Listagem de Livro</h1>
   <a href="novo" class="btn btn-primary">Novo</a>
   <table class="table table-bordered table-striped">
     <thead>
@@ -29,23 +29,23 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($noticias as $noticia)
+      @foreach($livros as $livro)
           <tr>
-            <td>{{$noticia->id}}</td>
+            <td>{{$livro->id}}</td>
             <td>
-              @if ($noticia->imagem != "")
-                <img style="width: 50px;" src="/storage/imagens/{{$noticia->imagem}}">
+              @if ($livro->imagem != "")
+                <img style="width: 50px;" src="/storage/imagens/{{$livro->imagem}}">
               @endif            </td>
-            <td>{{$noticia->titulo}}</td>
-            <td>{{$noticia->autor->nome}}</td>
-            <td>{{$noticia->data->format('d/m/Y')}}</td>
-            <td>{{$noticia->categoria->descricao}}</td>
-            <td><a class='btn btn-primary' href='editar/{{$noticia->id}}'>+</a></td>
-            <td><a class='btn btn-danger' href='excluir/{{$noticia->id}}'>-</a></td>
+            <td>{{$livro->titulo}}</td>
+            <td>{{$livro->autor->nome}}</td>
+            <td>{{$livro->data->format('d/m/Y')}}</td>
+            <td>{{$livro->categoria->descricao}}</td>
+            <td><a class='btn btn-primary' href='editar/{{$livro->id}}'>+</a></td>
+            <td><a class='btn btn-danger' href='excluir/{{$livro->id}}'>-</a></td>
           </tr>
       @endforeach
 
    </tbody>
   </table>
-  {{ $noticias->links() }}
+  {{ $livros->links() }}
 @endsection

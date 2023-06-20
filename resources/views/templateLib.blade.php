@@ -14,7 +14,7 @@
   <body>
     <header>
 
-      <a style="text-decoration: none;color: yellow;" href="{{url('/news')}}">Campo Grande Noticias</a>
+      <a style="text-decoration: none;color: yellow;" href="{{url('/news')}}">Campo Grande Livros</a>
     </header>
     <nav>
       <ul>

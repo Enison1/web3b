@@ -11,28 +11,28 @@
       </div>
   @endif
 
-  <h1>Cadastro de Noticias</h1>
-  @if ($noticia->imagem != "")
-    <img style="width: 200px;height:200px;object-fit:cover" src="/storage/imagens/{{$noticia->imagem}}">
+  <h1>Cadastro de Livros</h1>
+  @if ($livro->imagem != "")
+    <img style="width: 200px;height:200px;object-fit:cover" src="/storage/imagens/{{$livro->imagem}}">
   @endif
 
 
-  <form action="{{url('noticia/salvar')}}" method="post" enctype="multipart/form-data">
+  <form action="{{url('livro/salvar')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
       <label for="id" class="form-label">ID</label>
-      <input readonly class="form-control" readonly type="text" name="id" value="{{$noticia->id}}">
+      <input readonly class="form-control" readonly type="text" name="id" value="{{$livro->id}}">
     </div>
     <div class="mb-3">
       <label for="id" class="form-label">Título</label>
-      <input class="form-control @error('titulo') is-invalid @enderror" type="text" name="titulo" value="{{old('titulo', $noticia->titulo)}}">
+      <input class="form-control @error('titulo') is-invalid @enderror" type="text" name="titulo" value="{{old('titulo', $livro->titulo)}}">
       @error('titulo')
           <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>
     <div class="mb-3">
       <label for="descricao" class="form-label">Descrição</label>
-      <input class="form-control @error('descricao') is-invalid @enderror" type="text" name="descricao" value="{{old('descricao', $noticia->descricao)}}">
+      <input class="form-control @error('descricao') is-invalid @enderror" type="text" name="descricao" value="{{old('descricao', $livro->descricao)}}">
       @error('descricao')
           <div class="alert alert-danger">{{ $message }}</div>
       @enderror
@@ -40,7 +40,7 @@
     </div>
     <div class="mb-3">
       <label for="data" class="form-label">Data</label>
-      <input class="form-control @error('data') is-invalid @enderror" type="date" name="data" value="{{old('data', $noticia->data->format('Y-m-d'))}}">
+      <input class="form-control @error('data') is-invalid @enderror" type="date" name="data" value="{{old('data', $livro->data->format('Y-m-d'))}}">
       @error('data')
           <div class="alert alert-danger">{{ $message }}</div>
       @enderror
@@ -50,7 +50,7 @@
       <label for="autor" class="form-label">Autor</label>
       <select class="form-select @error('autor_id') is-invalid @enderror" name="autor_id">
         @foreach($autores as $autor)
-          <option {{ $autor->id == old('autor_id', $noticia->autor_id) ?'selected': ''}} value="{{$autor->id}} ">{{$autor->nome}}</option>
+          <option {{ $autor->id == old('autor_id', $livro->autor_id) ?'selected': ''}} value="{{$autor->id}} ">{{$autor->nome}}</option>
         @endforeach
       </select>
       @error('autor_id')
@@ -62,7 +62,7 @@
       <label for="categoria_id" class="form-label">Categoria</label>
       <select class="form-select @error('categoria_id') is-invalid @enderror" name="categoria_id">
         @foreach($categorias as $categoria)
-          <option {{ $categoria->id == old('categoria_id', $noticia->categoria_id) ?'selected': ''}} value="{{$categoria->id}} ">{{$categoria->descricao}}</option>
+          <option {{ $categoria->id == old('categoria_id', $livro->categoria_id) ?'selected': ''}} value="{{$categoria->id}} ">{{$categoria->descricao}}</option>
         @endforeach
       </select>
       @error('categoria_id')

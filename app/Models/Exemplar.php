@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Livro;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Categoria extends Model
+class Exemplar extends Model
 {
     use HasFactory;
-    protected $table = 'categoria';
+    protected $table = 'exemplar';
     public $timestamps = false;
 
-    public function livros(): HasMany
+    public function exemplares(): HasMany
     {
-        return $this->hasMany(Livro::class)->orderByRaw('data desc')->take(3);
+        return $this->hasMany(Exemplar::class)->orderByRaw('data desc')->take(3);
     }
 
 }

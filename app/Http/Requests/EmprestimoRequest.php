@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NoticiaRequest extends FormRequest
+class EmprestimoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class NoticiaRequest extends FormRequest
           'titulo' => 'required',
           'descricao' => 'required',
           'data' => 'required',
-          'autor_id' => 'required|exists:autor,id',
-          'categoria_id' => 'required|exists:categoria,id'
+          'aluno_id' => 'required|exists:aluno,id',
+          'exemplar_id' => 'required|exists:exemplar,id'
         ];
     }
 
@@ -36,10 +36,10 @@ class NoticiaRequest extends FormRequest
             'titulo.required' => 'Título é obrigatório',
             'descricao.required' => 'Descrição é obrigatória',
             'data.required' => 'Data é obrigatória',
-            'categoria_id.required' => 'Categoria é obrigatória',
-            'autor_id.required' => 'Autor é obrigatório',
-            'autor_id.exists' => 'Autor não encontrado',
-            'categoria_id.exists' => 'Categoria não encontrada',
+            'exemplar_id.required' => 'Categoria é obrigatória',
+            'aluno_id.required' => 'Aluno é obrigatório',
+            'aluno_id.exists' => 'Aluno não encontrado',
+            'exemplar_id.exists' => 'Categoria não encontrada',
 
 
         ];

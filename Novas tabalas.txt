@@ -1,0 +1,71 @@
+Autor
+- id
+- nome
+- email
+
+Categoria
+- id
+- descricao
+
+Livro
+- id
+- titulo
+- id_auto
+- categoria_id
+
+Exemplar
+- id
+- livro_id
+
+aluno
+- id
+- nome
+- cpf
+
+emprestimo
+- id
+- aluno_id
+- exemplar_id
+
+--------------
+
+-- Tabela Autor
+CREATE TABLE Autor (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+
+-- Tabela Categoria
+CREATE TABLE Categoria (
+  id SERIAL PRIMARY KEY,
+  descricao VARCHAR(255) NOT NULL
+);
+
+-- Tabela Livro
+CREATE TABLE Livro (
+  id SERIAL PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  id_autor INTEGER REFERENCES Autor(id),
+  categoria_id INTEGER REFERENCES Categoria(id)
+);
+
+-- Tabela Exemplar
+CREATE TABLE Exemplar (
+  id SERIAL PRIMARY KEY,
+  livro_id INTEGER REFERENCES Livro(id)
+);
+
+-- Tabela Aluno
+CREATE TABLE Aluno (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  cpf VARCHAR(11) NOT NULL
+);
+
+-- Tabela Emprestimo
+CREATE TABLE Emprestimo (
+  id SERIAL PRIMARY KEY,
+  aluno_id INTEGER REFERENCES Aluno(id),
+  exemplar_id INTEGER REFERENCES Exemplar(id)
+);

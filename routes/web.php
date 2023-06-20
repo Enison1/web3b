@@ -4,8 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
-use App\Http\Controllers\NoticiaController;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\LivroController;
+use App\Http\Controllers\ExemplarController;
+use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\EmprestimoController;
+use App\Http\Controllers\LibController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/categoria/excluir/{id}', [CategoriaController::class, 'excluir']);
     Route::post('/categoria/salvar', [CategoriaController::class, 'salvar']);
     Route::get('/categoria/relatorio', [CategoriaController::class, 'relatorio']);
+    
+    Route::get('/exemplar/listar', [ExemplarController::class, 'listar']);
+    Route::get('/exemplar/novo', [ExemplarController::class, 'novo']);
+    Route::get('/exemplar/editar/{id}', [ExemplarController::class, 'editar']);
+    Route::get('/exemplar/excluir/{id}', [ExemplarController::class, 'excluir']);
+    Route::post('/exemplar/salvar', [ExemplarController::class, 'salvar']);
+    Route::get('/exemplar/relatorio', [ExemplarController::class, 'relatorio']);
 
     Route::get('/autor/listar', [AutorController::class, 'listar']);
     Route::get('/autor/novo', [AutorController::class, 'novo']);
@@ -46,19 +56,35 @@ Route::middleware('auth')->group(function () {
     Route::post('/autor/salvar', [AutorController::class, 'salvar']);
     Route::post('/autor/mensagem', [AutorController::class, 'enviarMensagem']);
 
-    Route::get('/noticia/listar', [NoticiaController::class, 'listar']);
-    Route::get('/noticia/novo', [NoticiaController::class, 'novo']);
-    Route::get('/noticia/editar/{id}', [NoticiaController::class, 'editar']);
-    Route::get('/noticia/excluir/{id}', [NoticiaController::class, 'excluir']);
-    Route::post('/noticia/salvar', [NoticiaController::class, 'salvar']);
+    Route::get('/aluno/listar', [AlunoController::class, 'listar']);
+    Route::get('/aluno/novo', [AlunoController::class, 'novo']);
+    Route::get('/aluno/editar/{id}', [AlunoController::class, 'editar']);
+    Route::get('/aluno/excluir/{id}', [AlunoController::class, 'excluir']);
+    Route::get('/aluno/mensagem/{id}', [AlunoController::class, 'mensagem']);
+    Route::post('/aluno/salvar', [AlunoController::class, 'salvar']);
+    Route::post('/aluno/mensagem', [AlunoController::class, 'enviarMensagem']);
+
+    Route::get('/livro/listar', [LivroController::class, 'listar']);
+    Route::get('/livro/novo', [LivroController::class, 'novo']);
+    Route::get('/livro/editar/{id}', [LivroController::class, 'editar']);
+    Route::get('/livro/excluir/{id}', [LivroController::class, 'excluir']);
+    Route::post('/livro/salvar', [LivroController::class, 'salvar']);
+
+    Route::get('/emprestimo/listar', [EmprestimoController::class, 'listar']);
+    Route::get('/emprestimo/novo', [EmprestimoController::class, 'novo']);
+    Route::get('/emprestimo/editar/{id}', [EmprestimoController::class, 'editar']);
+    Route::get('/emprestimo/excluir/{id}', [EmprestimoController::class, 'excluir']);
+    Route::post('/emprestimo/salvar', [EmprestimoController::class, 'salvar']);
 
     Route::get('/', function () {
         return view('index');
     });
 });
 
-Route::get('/news', [NewsController::class, 'index']);
-Route::get('/news/noticia/{id}', [NewsController::class, 'noticia']);
-Route::get('/news/categoria/{id}', [NewsController::class, 'categoria']);
+Route::get('/lib', [LibController::class, 'index']);
+Route::get('/lib/livro/{id}', [LibController::class, 'livro']);
+Route::get('/lib/categoria/{id}', [LibController::class, 'categoria']);
+Route::get('/lib/livro/{id}', [LibController::class, 'emprestimo']);
+Route::get('/lib/categoria/{id}', [LibController::class, 'exemplar']);
 
 require __DIR__.'/auth.php';

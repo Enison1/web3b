@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\Categoria;
-use App\Models\Autor;
+use App\Models\Exemplar;
+use App\Models\Aluno;
 
-class Noticia extends Model
+class Emprestimo extends Model
 {
     use HasFactory;
-    protected $table = 'noticia';
+    protected $table = 'emprestimo';
     public $timestamps = false;
     protected $casts = [
         'data' => 'datetime:Y-m-d',
     ];
-    public function categoria(): BelongsTo
+    public function exemplar(): BelongsTo
     {
-       return $this->belongsTo(Categoria::class);
+       return $this->belongsTo(exemplar::class);
     }
 
-    public function autor(): BelongsTo
+    public function aluno(): BelongsTo
     {
-       return $this->belongsTo(Autor::class);
+       return $this->belongsTo(Aluno::class);
     }
 }

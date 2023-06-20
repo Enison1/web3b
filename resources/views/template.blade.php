@@ -169,14 +169,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
+      <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{url('categoria/listar')}}">Categoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{url('autor/listar')}}">Autor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url('noticia/listar')}}">Noticia</a>
+          <a class="nav-link active" aria-current="page" href="{{url('livro/listar')}}">Livro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url('exemplar/listar')}}">Exemplar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url('aluno/listar')}}">Aluno</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url('emprestimo/listar')}}">Emprestimo</a>
         </li>
         <li class="nav-item">
           <form method="POST" action="{{ route('logout') }}">
