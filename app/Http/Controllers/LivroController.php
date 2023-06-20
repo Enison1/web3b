@@ -52,7 +52,7 @@ class LivroController extends Controller
      $livro->categoria_id = $request->input('categoria_id');
      $livro->save();
      return redirect('livro/listar')
-     ->with(['msg' => "Notícia '$livro->titulo' foi salva"]);
+     ->with(['msg' => "Livro '$livro->titulo' foi salvo"]);
    }
 
 
@@ -97,7 +97,7 @@ class LivroController extends Controller
      $livro->delete();
 
      return redirect('livro/listar')
-        ->with(['msg' => "Notícia $titulo foi excluída"]);
+        ->with(['msg' => "Livro $titulo foi excluído"]);
    }
 
 

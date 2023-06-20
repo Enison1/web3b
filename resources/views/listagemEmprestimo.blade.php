@@ -20,7 +20,7 @@
       <tr>
         <th>ID</th>
         <th>Figura</th>
-        <th>Titulo</th>
+        <th>Observação</th>
         <th>Aluno</th>
         <th>Data</th>
         <th>Exemplar</th>
@@ -36,7 +36,7 @@
               @if ($emprestimo->imagem != "")
                 <img style="width: 50px;" src="/storage/imagens/{{$emprestimo->imagem}}">
               @endif            </td>
-            <td>{{$emprestimo->titulo}}</td>
+            <td>{{$emprestimo->observacao}}</td>
             <td>{{$emprestimo->aluno->nome}}</td>
             <td>{{$emprestimo->data->format('d/m/Y')}}</td>
             <td>{{$emprestimo->exemplar->descricao}}</td>

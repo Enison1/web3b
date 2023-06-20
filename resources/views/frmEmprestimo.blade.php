@@ -24,9 +24,9 @@
       <input readonly class="form-control" readonly type="text" name="id" value="{{$emprestimo->id}}">
     </div>
     <div class="mb-3">
-      <label for="id" class="form-label">Título</label>
-      <input class="form-control @error('titulo') is-invalid @enderror" type="text" name="titulo" value="{{old('titulo', $emprestimo->titulo)}}">
-      @error('titulo')
+      <label for="id" class="form-label">Observação</label>
+      <input class="form-control @error('observacao') is-invalid @enderror" type="text" name="observacao" value="{{old('observacao', $emprestimo->observacao)}}">
+      @error('observacao')
           <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>

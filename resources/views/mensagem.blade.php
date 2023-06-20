@@ -11,6 +11,6 @@
       <p>{{$mensagem}}</p>
       <br>
       <p>Att. </p>
-      <p>Admin. Sistemas de News</p>
+      <p>Admin. Sistemas de Livros</p>
   </body>
 </html>

@@ -45,21 +45,21 @@ class EmprestimoController extends Controller
          $emprestimo->imagem = $upload[$tamanho-1];
      }
 
-     $emprestimo->titulo = $request->input('titulo');
+     $emprestimo->observacao = $request->input('observacao');
      $emprestimo->descricao = $request->input('descricao');
      $emprestimo->aluno_id = $request->input('aluno_id');
      $emprestimo->data = $request->input('data');
      $emprestimo->exemplar_id = $request->input('exemplar_id');
      $emprestimo->save();
      return redirect('emprestimo/listar')
-     ->with(['msg' => "Notícia '$emprestimo->titulo' foi salva"]);
+     ->with(['msg' => "Emprestimo '$emprestimo->observacao' foi salvo"]);
    }
 
 
 
    function salvarOld(Request $request) {
      $validated = $request->validate([
-             'titulo' => 'required',
+             'observacao' => 'required',
              'texto' => 'required',
              'data' => 'required',
              'aluno_id' => 'required|exists:aluno,id',
@@ -71,7 +71,7 @@ class EmprestimoController extends Controller
      } else {
        $emprestimo = Emprestimo::find($request->input('id'));
      }
-     $emprestimo->titulo = $request->input('titulo');
+     $emprestimo->observacao = $request->input('observacao');
      $emprestimo->descricao = $request->input('descricao');
      $emprestimo->aluno_id = $request->input('aluno_id');
      $emprestimo->data = $request->input('data');
@@ -89,7 +89,7 @@ class EmprestimoController extends Controller
 
    function excluir($id) {
      $emprestimo = Emprestimo::find($id);
-     $titulo = $emprestimo->titulo;
+     $observacao = $emprestimo->observacao;
      if ($emprestimo->imagem != "") {
        Storage::delete("public/imagens/".$emprestimo->imagem);
      }
@@ -97,7 +97,7 @@ class EmprestimoController extends Controller
      $emprestimo->delete();
 
      return redirect('emprestimo/listar')
-        ->with(['msg' => "Notícia $titulo foi excluída"]);
+        ->with(['msg' => "Emprestimo $observacao foi excluído"]);
    }
 
 
